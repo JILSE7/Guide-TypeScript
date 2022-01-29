@@ -1,86 +1,111 @@
 "use strict";
 (() => {
-    class Mutante {
-        constructor(name, realName) {
-            this.name = name;
-            this.realName = realName;
-        }
-        bio() {
-            return this.name + " " + this.realName;
-        }
-    }
-    class Xmen extends Mutante {
-    }
-    const spiderman = new Xmen("spiderman", "peter parker");
-    const printName = (personaje) => {
-        console.log(personaje.bio());
+    console.log("Interfaces");
+    let flash = {
+        name: "Barry Alen",
+        age: 24,
+        powers: ["Súpers velocidad", "Viajar en el tiempo"]
     };
-    printName(spiderman);
+    let superman = {
+        name: "superman",
+        age: 60,
+        powers: ["Super fuerza", "volar"],
+        getNombre() {
+            return this.name;
+        }
+    };
 })();
 (() => {
-    class Aveger {
-        constructor(name, team, realName) {
+    class Mutant {
+        constructor(name, realname, isHuman) {
             this.name = name;
-            this.team = team;
-            this.realName = realName;
+            this.realname = realname;
+            this.isHuman = isHuman;
         }
-        bio() {
-            return `${this.name} ${this.team}`;
+        mutanPower(id) {
+            return `${this.realname} tiene el poder de valor`;
         }
     }
-    const antMan = new Aveger("said", "Marvel", "said mandujano");
-    console.log(antMan.bio());
+    const mutante = new Mutant("wolowerine", "logan martinez", false);
+    console.log(mutante.mutanPower(25));
 })();
 (() => {
-    class Avenger {
-        constructor(nombre, realNombre) {
-            this.nombre = nombre;
-            this.realNombre = realNombre;
-            console.log("constructor avenger llamado");
-        }
-        getFullName() {
-            return `${this.nombre} ${this.realNombre}`;
-        }
-        get obtenerNombre() {
-            return this.nombre;
-        }
-        set escribirNombre(name) {
-            this.nombre = name;
-        }
-    }
-    class Xmen extends Avenger {
-        constructor(type, name, real) {
-            super(name, real);
-            this.type = type;
-        }
-        obtenerNOmbre() {
-            return super.getFullName();
-        }
-    }
-    const wolwerine = new Xmen("moustro", "wolwerine", "jorge negrete");
-    console.log(wolwerine.obtenerNOmbre());
-    wolwerine.escribirNombre = "Pedro";
-    console.log(wolwerine.obtenerNOmbre());
+    let addNumbersFunction = (a, b) => {
+        return a + b;
+    };
+    const result = addNumbersFunction(25, 35);
+    console.log(result);
 })();
-(() => {
-    class Apocalipsis {
-        constructor(name) {
-            this.name = name;
-        }
-        static callApocalipsis(name) {
-            if (!Apocalipsis.instance) {
-                Apocalipsis.instance = new Apocalipsis(name);
-            }
-            return Apocalipsis.instance;
-        }
-        changeName(newName) {
-            this.name = newName;
-        }
+const conducirBatimovil = (auto) => {
+    auto.encender = true;
+    auto.velocidadMaxima = 100;
+    auto.acelerar();
+};
+const batimovil = {
+    encender: false,
+    velocidadMaxima: 0,
+    acelerar() {
+        console.log("...... gogogo!!!");
     }
-    const apo1 = Apocalipsis.callApocalipsis("soy el primer apocalipsis");
-    const apo12 = Apocalipsis.callApocalipsis("soy el primer apocalipsis2");
-    console.log(apo1, apo12);
-    apo1.changeName("puta madreee");
-    console.log(apo1, apo12);
+};
+const guason = {
+    reir: true,
+    comer: true,
+    llorar: false
+};
+const reir = (guason) => {
+    if (guason.reir) {
+        console.log("JAJAJAJA");
+    }
+};
+const ciudadGotica = (ciudadanos) => {
+    return ciudadanos.length;
+};
+var EstadoCivil;
+(function (EstadoCivil) {
+    EstadoCivil["soltero"] = "SOLTERO";
+    EstadoCivil["casado"] = "CASADO";
+    EstadoCivil["divorciado"] = "DIVORCIADO";
+})(EstadoCivil || (EstadoCivil = {}));
+class Persona {
+    constructor(nombre, edad, sexo, estadoCivil) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.estadoCivil = estadoCivil;
+    }
+    imprimirBio() {
+        console.log(`Esta es mi biografia soy ${this.nombre} mi edad es ${this.edad} soy ${this.sexo ? "niño" : "niña"} y estoy ${this.estadoCivil}`);
+    }
+}
+const said = new Persona("Said", 25, true, EstadoCivil.casado);
+said.imprimirBio();
+(() => {
+    const client = {
+        name: 'Said',
+        age: 25,
+        address: {
+            id: 125,
+            zipcode: 54150,
+            city: 'Tokio'
+        },
+        getFullAdress(id) {
+            return this.name;
+        }
+    };
+    const cliente2 = {
+        name: 'pedro',
+        age: 24,
+        address: {
+            id: 54,
+            zipcode: 54150,
+            city: "Tlalnepantla"
+        },
+        getFullAdress(id) {
+            return this.name + " " + JSON.stringify(this.address);
+        }
+    };
+    console.log(client.getFullAdress('said'));
+    console.log(cliente2.getFullAdress('pedro'));
 })();
 //# sourceMappingURL=main.js.map
