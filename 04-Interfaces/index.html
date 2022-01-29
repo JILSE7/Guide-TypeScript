@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaces</title>
+</head>
+<body>
+    <h1>Interfaces</h1>
+    <p>Una interfaz es muy similar a un type, realmente realizan lo mismo, queda mucho a discrecion de la personas, escoger entra cada una de ellas, la unica diferencia es que una interfaz puede ser extendida, añadiendio mas campos, es como si fueran heredadas</p>
+    <p>recuerda que las interfaces son implementadas</p>
+    <p>y extendidas para añadir mas campos</p>
+    
+
+    <h3>Interfaces</h3>
+    <code>
+        interface Animal {
+            name: string
+          }
+          
+          interface Bear extends Animal {
+            honey: boolean
+          }
+          
+          const bear = getBear() 
+          bear.name
+          bear.honey
+                  
+    </code>
+
+    <h3>type</h3>
+    <code>
+        type Animal = {
+            name: string
+          }
+          
+          type Bear = Animal & { 
+            honey: boolean 
+          }
+          
+          const bear = getBear();
+          bear.name;
+          bear.honey;
+    </code>
+
+    
+    <script src="../main.js"></script>
+</body>
+</html>

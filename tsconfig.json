@@ -100,5 +100,8 @@
   },
   "exclude": [
     "node_modules2"
+  ],
+  "include": [
+    "04-Interfaces"
   ]
 }
