@@ -5,6 +5,7 @@
         age: 24,
         powers: ["Súpers velocidad","Viajar en el tiempo"]
     }
+    
 
     flash = {
         name: "otro nombre",
@@ -14,9 +15,9 @@
             return this.name;
         }
     }
-    console.log(flash);
+    console.log(flash); 
 
     //!console.log(flash.getNombre());  DA UN ERROR PUES PUEDE SER UNDEFINED
 
-
-})()
+    
+})();
